@@ -24,7 +24,7 @@ public class PersonApi {
         try {
             personApplicationService.create(PersonAssembler.toDO(personDTO));
             return Response.ok();
-        } catch (ParseException e) {
+        } catch (Exception e) {
             log.error("", e);
             return Response.failed(e.getMessage());
         }
@@ -34,7 +34,7 @@ public class PersonApi {
     public Response update(PersonDTO personDTO) {
         try {
             personApplicationService.update(PersonAssembler.toDO(personDTO));
-        } catch (ParseException e) {
+        } catch (Exception e) {
             log.error("", e);
             return Response.failed(e.getMessage());
         }

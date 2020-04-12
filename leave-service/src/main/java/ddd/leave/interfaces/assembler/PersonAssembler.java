@@ -21,14 +21,21 @@ public class PersonAssembler {
         return dto;
     }
 
-    public static Person toDO(PersonDTO dto) throws ParseException {
+    public static Person toDO(PersonDTO dto) {
+
+
+
         Person person = new Person();
         person.setPersonId(dto.getPersonId());
         person.setPersonType(PersonType.valueOf(dto.getPersonType()));
         person.setPersonName(dto.getPersonName());
         person.setStatus(PersonStatus.valueOf(dto.getStatus()));
+        try {
         person.setCreateTime(DateUtil.parseDateTime(dto.getCreateTime()));
         person.setLastModifyTime(DateUtil.parseDateTime(dto.getLastModifyTime()));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
         return person;
     }
 }

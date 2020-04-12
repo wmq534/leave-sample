@@ -21,6 +21,10 @@ public class LeaveApi {
     @Autowired
     LeaveApplicationService leaveApplicationService;
 
+    @GetMapping("/ok")
+    public Response ok(){
+        return Response.ok();
+    }
     @PostMapping
     public Response createLeaveInfo(LeaveDTO leaveDTO){
         Leave leave = LeaveAssembler.toDO(leaveDTO);
